@@ -17,7 +17,11 @@ public class Persona {
 		this.edad = edad;
 	}
 	
-	
+	public String getDatos() {
+		String datos = "Nombre: "+ nombre + "    Apellido: " + apellido 
+						+ "    Edad: "+ edad + "    ID: "+ID;
+		return datos;
+	}
 	public int getID() {
 		return ID;
 	}

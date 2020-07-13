@@ -34,6 +34,25 @@ public class PersonaDAO {
 
 		}
 	}
+	
+	public void agregar(int ID, String n, String a, int edad) {
+		Connection ad = (Connection) ConexionBD.devolverConexion();
+		
+		try {
+		String query = "INSERT INTO persona VALUES (?,?,?,?)";
+		
+		PreparedStatement st = (PreparedStatement) ad.prepareStatement(query);
+		st.setString(3, n);
+		st.setString(2, a);
+		st.setInt(4, edad);
+		st.setInt(1, ID);
+		
+		st.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("Error al actualizar");
+			e.printStackTrace();
+		}
+	}
 
 	public Persona buscarID(int ID) {
 		Connection ad = (Connection) ConexionBD.devolverConexion();
